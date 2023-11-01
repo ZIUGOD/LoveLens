@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Título Padrão{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- link css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_base.css' %}">
+
+    <title>LoveLens{% block title %}{% endblock %}</title>
 </head>
 
 <body>
     <header>
-        <h1>Meu Site</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Página Inicial</a></li>
-                <li><a href="/sobre/">Sobre</a></li>
-                <li><a href="/contato/">Contato</a></li>
-            </ul>
-        </nav>
+        <h1>LoveLens</h1>
     </header>
 
     <main>
-        {% block content %}{% endblock %}
+        {% block content %}
+        {% endblock %}
     </main>
 
     <footer>
-        <p>&copy; 2023 Meu Site</p>
+        <div id="ziu-div">
+            <p><a href="https://github.com/ZIUGOD">ZIUGOD - GitHub</a></p>
+        </div>
+
+        <div>
+            &copy;
+        </div>
+
+        <div id="kay-div">
+
+        </div>
     </footer>
 </body>
 
