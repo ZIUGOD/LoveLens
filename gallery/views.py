@@ -1,13 +1,8 @@
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.http import HttpResponse
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from .models import Image
-
-
-class ImageListView(ListView):
-    model = Image
-    template_name = "gallery/index.html"
 
 
 class ImageCreateView(CreateView):
@@ -16,7 +11,30 @@ class ImageCreateView(CreateView):
     template_name = "components/create_image.html"
 
     def form_valid(self, form):
+        # Associar o usuário atual ao upload (assumindo que você está usando autenticação de usuário)
+        form.instance.uploaded_by = self.request.user
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse("home_page")  # Redireciona para a página inicial após o upload.
+        # Redireciona para a página inicial após o upload.
+        return reverse("home_page")
+
+
+class ImageListView(ListView):
+    model = Image
+    template_name = "gallery/index.html"
+
+
+class ImageDetailView(DetailView):
+    model = Image
+    template_name = "gallery/image_detail.html"
+    context_object_name = "image"
+
+
+class ImageDeleteView(DeleteView):
+    model = Image
+    template_name = "gallery/image_delete.html"
+    success_url = reverse_lazy(
+        "home_page"
+    )  # Redireciona para a página inicial após a exclusão
+    context_object_name = "image"

@@ -24,7 +24,6 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: bisque;
     width: 100vw;
     padding: 1em;
     border: 0.2em solid black;
@@ -50,4 +49,12 @@ footer {
     position: fixed;
     bottom: 0;
     height: 6vh;
+}
+
+.container {
+    background-color: lime;
+}
+
+button {
+    color: lime;
 }
