@@ -2,6 +2,7 @@ from django.views.generic.edit import CreateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.urls import reverse, reverse_lazy
+from django.db import models
 from .models import Image
 
 
@@ -11,7 +12,6 @@ class ImageCreateView(CreateView):
     template_name = "components/create_image.html"
 
     def form_valid(self, form):
-        # Associar o usuário atual ao upload (assumindo que você está usando autenticação de usuário)
         form.instance.uploaded_by = self.request.user
         return super().form_valid(form)
 

@@ -2,10 +2,17 @@
 
 {% block content %}
 <div class="container">
-    <h1>Fazer Upload de uma Imagem</h1>
+    <h1>Upload</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Título:</label>
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.image.id_for_label }}">Escolher imagem:</label>
+            {{ form.image }}
+        </div>
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </div>

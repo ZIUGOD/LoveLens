@@ -9,9 +9,9 @@
     {% if images %}
     <div class="row">
         {% for image in images %}
-            <div class="col-md-4">
+            <div class="col-md-4 mb-4">
                 <div class="thumbnail">
-                    <img src="{{ image.image.url }}" alt="{{ image.title }}">
+                    <img src="{{ image.image.url }}" alt="{{ image.title }}" style="max-width: 100%;">
                     <div class="caption">
                         <h3>{{ image.title }}</h3>
                         <p>Data de envio: {{ image.upload_date }}</p>
