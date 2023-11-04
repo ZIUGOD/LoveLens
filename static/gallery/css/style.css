@@ -77,7 +77,8 @@ footer {
 }
 
 .container:hover {
-    box-shadow: 0 0 2em black;
+    box-shadow: 0 0 2em lime;
+    border: 0.2em solid white;
     transition: 0.2s;
 }
 

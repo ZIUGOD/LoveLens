@@ -11,6 +11,11 @@
     font-weight: 300;
 }
 
+::selection {
+    background-color: #ff69b4;
+    color: white;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -19,7 +24,7 @@ body {
 
 header,
 footer {
-    background: linear-gradient(135deg, rgba(205, 163, 79, 1) 0%, rgba(230, 207, 147, 1) 25%, rgba(255, 195, 160, 1) 50%, rgba(182, 252, 213, 1) 75%, rgba(182, 252, 213, 1) 100%);
+    background-color: pink;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -49,4 +54,84 @@ footer {
     position: fixed;
     bottom: 0;
     height: 6vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff0000bf 0%, rgba(255, 192, 203, 0.7459150896686799) 46%, hwb(285 44% 0% / 0.745) 100%);
+    border-radius: 1em;
+    padding: 3vh 6vw;
+    box-shadow: 0 0 1em black;
+    width: 90vw;
+    height: 30vh;
+    background-color: white;
+    border: 0.2em solid none;
+    border-radius: 1em;
+    transition: 0.2s;
+
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+}
+
+.container:hover {
+    box-shadow: 0 0 2em lime;
+    border: 0.2em solid white;
+    transition: 0.2s;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 90%;
+    padding: 1%;
+}
+
+input[type="text"] {
+    border-radius: 1em;
+    border: 0.2em solid #ff25ab;
+    outline: none;
+    padding: 2% 3%;
+}
+
+button[type="submit"] {
+    color: #ff1493;
+    background-color: white;
+    border: 0.2em solid #ff1493;
+    border-radius: 1em;
+    height: 6vh;
+    width: 12vw;
+    transition: 0.2s;
+    font-size: 1em;
+}
+
+button[type="submit"]:hover {
+    background-color: #ff69b4;
+    color: white;
+    transition: 0.2s;
+    border: 0.2em solid #ff8dca;
+    box-shadow: 0 0 1em #ff1493;
+}
+
+.thumbnail img {
+    max-width: 100%;
+    margin: 2%;
+    box-shadow: 0 0 1em black;
+}
+
+.caption h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-top: 1vh;
+}
+
+.caption p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 1vh;
 }
