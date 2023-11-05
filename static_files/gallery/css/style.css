@@ -38,22 +38,31 @@ footer {
     padding: 1vh 2vw;
 }
 
-header {
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25vw;
     border-top: none;
     height: 8vh;
-    margin-bottom: 1vh;
+    width: 100vw;
+}
+
+.main-title {
+    text-decoration: none;
+    color: black;
 }
 
 footer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 1vh;
     border-bottom: none;
-    position: fixed;
     bottom: 0;
-    height: 6vh;
+    height: 10vh;
 }
 
 .container {
@@ -77,8 +86,8 @@ footer {
 }
 
 .container:hover {
-    box-shadow: 0 0 2em lime;
-    border: 0.2em solid white;
+    box-shadow: 0 0 2em black;
+    border: 0.1em solid white;
     transition: 0.2s;
 }
 
@@ -134,4 +143,28 @@ button[type="submit"]:hover {
     color: #666;
     font-size: 1rem;
     margin-bottom: 1vh;
+}
+
+#ziu-div,
+#kay-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.social-media a {
+    margin: 5px 0;
 }
