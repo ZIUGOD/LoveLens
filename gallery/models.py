@@ -1,4 +1,3 @@
-# Importa o módulo de modelos do Django
 from django.db import models
 
 

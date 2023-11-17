@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "gallery",
+    "django_seed",
 ]
 
 
@@ -111,7 +112,10 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 STATIC_ROOT = os.path.join(BASE_DIR, "static_files")
 
-STATICFILES_DIRS = [BASE_DIR / "static/"]  # Here
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    "/var/www/static/",
+]  # Here
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

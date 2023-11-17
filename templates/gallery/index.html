@@ -1,27 +1,27 @@
 {% extends "components/base.html" %}
-
-{% block title %} - Home{% endblock %}
-
+{% load static %}
+{% block title %}
+    - Home
+{% endblock title %}
 {% block content %}
-<div class="container">
-    <h2>LoveLens - Caíque e Karolayne</h2>
-
-    {% if images %}
-    <div class="row">
-        {% for image in images %}
-            <div class="col-md-4 mb-4">
-                <div class="gallery">
-                    <img src="{{ image.image.url }}" alt="{{ image.title }}" style="max-width: 100%;">
-                    <div class="caption">
-                        <h3>{{ image.title }}</h3>
-                        <p>Data de envio: {{ image.upload_date }}</p>a
-                    </div>
+    <div class="gallery">
+        <h2>LoveLens - Caíque e Karolayne</h2>
+        {% for image_obj in images %}
+            <div class="card p-2">
+                <div class="card-body">
+                    <h3 class="card-title">{{ image_obj.title }}</h3>
+                    <p class="card-text">Data de envio: {{ image_obj.upload_date }}</p>
                 </div>
+                <img id="couple-picture"
+                     class="card-img-bottom"
+                     src="{{ image_obj.image.url }}"
+                     alt="{{ image_obj.title }}"
+                     width="{{ image.width }}"
+                     height="{{ image.height }}">
             </div>
-        {% endfor %}
-    </div>
-    {% else %}
-    <p>Nenhuma imagem disponível no momento. Por favor, faça o envio de algumas fotos.</p>
-    {% endif %}
-</div>
-{% endblock %}
+        </div>
+    {% empty %}
+        <p>Nenhuma imagem disponível.</p>
+    {% endfor %}
+    <link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+{% endblock content %}

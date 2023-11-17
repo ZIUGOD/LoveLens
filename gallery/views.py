@@ -22,6 +22,8 @@ class ImageCreateView(CreateView):
 
 class ImageListView(ListView):
     model = Image
+    paginate_by = 5
+    context_object_name = "images"
     template_name = "gallery/index.html"
 
 
