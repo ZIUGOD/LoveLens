@@ -3,7 +3,9 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1.0"
+              user-scalable="no">
         <meta name="description" content="Site de casal ♥">
         <meta name="keywords" content="Palavras-chave padrão da página.">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -11,52 +13,19 @@
               integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
               crossorigin="anonymous">
         <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <link rel="stylesheet"
               type="text/css"
-              href="{% static 'gallery/css/style_base.css' %}">
+              href="{% static 'gallery/css/base.css' %}">
         <title>LoveLens
             {% block title %}
             {% endblock title %}
         </title>
     </head>
-    <body>
-        <header>
-            <nav>
-                <a class="main-title" href="{% url 'home_page' %}">
-                    <h1>LoveLens</h1>
-                </a>
-                <div class="header-links">
-                    <a id="create-new-post" href="{% url 'gallery:create_image' %}">Criar nova postagem</a>
-                </div>
-            </nav>
-        </header>
+    {% include "components/header.html" %}
+    <body class="container-fluid">
         {% block content %}
         {% endblock content %}
-        <footer>
-            <div class="couple-links" id="ziu-div">
-                <p>ZIUGOD</p>
-                <div class="social-media">
-                    <a href="https://github.com/ZIUGOD" target="_blank">
-                        <p>GitHub</p>
-                    </a>
-                    <a href="https://www.instagram.com/playa.ziu/" target="_blank">
-                        <p>Instagram</p>
-                    </a>
-                    <a href="https://twitter.com/ZIUGOD" target="_blank">
-                        <p>Twitter</p>
-                    </a>
-                </div>
-            </div>
-            <div class="couple-links" id="kay-div">
-                <p>Karolayne</p>
-                <div class="social-media">
-                    <a href="https://www.instagram.com/karolaynea146/" target="_blank">
-                        <p>Instagram</p>
-                    </a>
-                    <a href="https://twitter.com/karolaynea146" target="_blank">
-                        <p>Twitter</p>
-                    </a>
-                </div>
-            </div>
-        </footer>
     </body>
+    {% include "components/footer.html" %}
 </html>

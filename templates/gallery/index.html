@@ -4,24 +4,22 @@
     - Home
 {% endblock title %}
 {% block content %}
-    <div class="gallery">
-        <h2>LoveLens - Caíque e Karolayne</h2>
+    <h2 class="mb-4">LoveLens - Caíque e Karolayne</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for image_obj in images %}
-            <div class="card p-2">
-                <div class="card-body">
-                    <h3 class="card-title">{{ image_obj.title }}</h3>
-                    <p class="card-text">Data de envio: {{ image_obj.upload_date }}</p>
+            <div class="col">
+                <div class="card p-2">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ image_obj.title }}</h3>
+                        <p class="card-text">Enviada em: {{ image_obj.upload_date }}</p>
+                    </div>
+                    <img class="card-img-bottom img-responsive"
+                         src="{{ image_obj.image.url }}"
+                         alt="{{ image_obj.title }}"
+                         width="{{ image_obj.width }}"
+                         height="{{ image_obj.height }}">
                 </div>
-                <img id="couple-picture"
-                     class="card-img-bottom"
-                     src="{{ image_obj.image.url }}"
-                     alt="{{ image_obj.title }}"
-                     width="{{ image.width }}"
-                     height="{{ image.height }}">
             </div>
-        </div>
-    {% empty %}
-        <p>Nenhuma imagem disponível.</p>
-    {% endfor %}
-    <link rel="stylesheet" href="{% static 'css/style_index.css' %}">
+        {% endfor %}
+    </div>
 {% endblock content %}

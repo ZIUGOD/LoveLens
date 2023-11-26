@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+nav {
+    margin: 0;
+    padding: 1em;
+    background-color: whitesmoke;
+    height: 100%;
+}
