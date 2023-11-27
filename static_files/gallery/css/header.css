@@ -1,14 +1,18 @@
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+header {
+    box-shadow: 0 0 2em grey;
+    padding: 1em;
+    border-radius: 1em;
 }
 
+#link-home-page {
+    font-size: 1.5rem;
+}
 
-nav {
-    margin: 0;
-    padding: 1em;
-    background-color: whitesmoke;
-    height: 100%;
+nav form a {
+    border: 0.2em solid #ffffff;
+    border-radius: 1em;
+    color: purple;
+    background-color: pink;
+    padding: 0.75em;
+    text-decoration: none;
 }

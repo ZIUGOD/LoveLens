@@ -1,26 +1,43 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'gallery/css/footer.css' %}">
 {% block content %}
-    <div class="container my-5">
-        <footer class="bg-light text-center text-dark">
-            <section class="mb-4">
-                <p>ZIUGOD</p>
-                <!-- Twitter -->
-                <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i class="bi bi-twitter"></i></a>
-                <!-- Instagram -->
-                <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i class="bi bi-instagram"></i></a>
-                <!-- GitHub -->
-                <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i class="bi bi-github"></i></a>
-            </section>
-            <section>
-                <p>Karolayne</p>
-                <!-- Twitter -->
-                <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i class="bi bi-twitter"></i></a>
-                <!-- Instagram -->
-                <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i class="bi bi-instagram"></i></a>
-                <!-- GitHub -->
-                <a class="btn btn-primary btn-floating m-1" href="#!" role="button"><i class="bi bi-github"></i></a>
-            </section>
+    <section>
+        <footer class="bg-body-tertiary text-center">
+            <div class="container p-4">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Notas</h5>
+                        <p>
+                            Site pensado e desenvolvido por <a href="https://github.com/ZIUGOD" target="_blank">ZIUGOD</a> como uma forma de aprendizado e centralização online do meu amor por <a href="#" target="_blank">@Karolayne</a>. Devido minha gratidão por este relacionamento, procurei demonstrar de uma forma que eu sei: com tecnologia. Esta é uma mera forma de demonstrar amor e armazenar os momentos do casal. ♥
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">ZIUGOD</h5>
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="https://github.com/ZIUGOD" class="text-body">GitHub</a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/ZIUGOD" class="text-body">Twitter</a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/playa.ziu/" class="text-body">Instagram</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h5 class="text-uppercase mb-0">Karolayne</h5>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="https://twitter.com/karolaynea146" class="text-body">Twitter</a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/karolaynea146/" class="text-body">Instagram</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </footer>
-    </div>
+    </section>
 {% endblock content %}
