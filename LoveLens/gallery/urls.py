@@ -10,7 +10,7 @@ from .views import (
 app_name = "gallery"
 
 urlpatterns = [
-    path("upload/", ImageCreateView.as_view(), name="create_image"),
+    path("upload/", ImageCreateView.as_view(), name="new_image"),
     path("<int:pk>/", ImageDetailView.as_view(), name="detail_image"),
     path("<int:pk>/delete/", ImageDeleteView.as_view(), name="delete_image"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,22 +1,17 @@
 from django.views.generic.edit import CreateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-from django.urls import reverse, reverse_lazy
-from django.db import models
+from django.urls import reverse_lazy
 from .models import Image
+from .forms import ImageForm
 
 
-class ImageCreateView(CreateView):
+class ImageCreateView(CreateView, LoginRequiredMixin):
     model = Image
-    fields = ["title", "image"]
-    template_name = "components/create_image.html"
-
-    def form_valid(self, form):
-        form.instance.uploaded_by = self.request.user
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        return reverse("home_page")
+    template_name = "gallery/create_image.html"
+    form_class = ImageForm
+    success_url = reverse_lazy("home_page")
 
 
 class ImageListView(ListView):
@@ -32,8 +27,11 @@ class ImageDetailView(DetailView):
     context_object_name = "image"
 
 
-class ImageDeleteView(DeleteView):
+class ImageDeleteView(DeleteView, LoginRequiredMixin):
     model = Image
     template_name = "gallery/image_delete.html"
     success_url = reverse_lazy("home_page")
     context_object_name = "image"
+
+    def get_queryset(self):
+        return Image.objects.filter(author=self.request.user)

@@ -8,4 +8,6 @@ urlpatterns = [
     path("", ImageListView.as_view(), name="home_page"),
     path("image/", include("gallery.urls")),
     path("admin/", admin.site.urls),
+    path("", include("django.contrib.auth.urls")),
+    path("members/", include("members.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

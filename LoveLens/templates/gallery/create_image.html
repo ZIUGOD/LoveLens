@@ -1,5 +1,6 @@
 {% extends "components/base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block title %}
     - Upload Image
 {% endblock title %}
@@ -7,8 +8,6 @@
     <div class="bg-secondary text-white-lg text-ce rounded-4 shadow p-2 border border-1">
         <h2>Enviar Nova Imagem</h2>
         <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% load crispy_forms_tags %}
             {% crispy form %}
             <input type="submit" class="btn btn-primary" value="Enviar">
         </form>

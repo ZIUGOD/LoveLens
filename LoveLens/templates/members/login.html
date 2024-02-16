@@ -1,0 +1,13 @@
+{% extends "components/base.html" %}
+{% block title %}
+    - login
+{% endblock title %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form method="post">
+        <div class="text-center">
+            {% crispy form %}
+            <input type="submit" class="btn btn-success" value="Enviar">
+        </div>
+    </form>
+{% endblock content %}
