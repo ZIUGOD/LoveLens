@@ -1,6 +1,6 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views import generic
@@ -18,7 +18,7 @@ class UserProfileView(LoginRequiredMixin, generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["nyra_user"] = User.objects.filter(
+        context["lovelens_user"] = User.objects.filter(
             username=self.kwargs["username"]
         ).first()
         print(context)

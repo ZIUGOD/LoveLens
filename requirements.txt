@@ -6,7 +6,11 @@ crispy-bootstrap5==2023.10
 cssbeautifier==1.14.11
 Django==4.2.10
 django-bootstrap-v5==1.0.11
+django-ckeditor==6.6.1
 django-crispy-forms==2.1
+django-currentuser==0.6.1
+django-js-asset==2.2.0
+django-responsive-images==1.3.0
 djlint==1.34.1
 EditorConfig==0.12.3
 html-tag-names==0.1.2

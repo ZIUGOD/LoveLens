@@ -1,16 +1,14 @@
 {% load static %}
-<link rel="stylesheet"
-      type="text/css"
-      href="{% static 'gallery/css/header.css' %}">
 {% block content %}
     <header class="navbar navbar-expand-md navbar-light d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom text-success bg-secondary">
         <a id="nyra-home-page"
            href="{% url 'home_page' %}"
            class="navbar-brand d-flex align-items-center mb-1 mb-md-0 me-md-auto">
-            <img src="images/lovelens.png"
+            <img src="{% static 'images/lovelens.png' %}"
                  alt="lovelens"
-                 width="100"
-                 height="32">
+                 width="96"
+                 height="96"
+                 class="shadow-lg rounded-circle">
         </a>
         <div class="order-md-last">
             <button class="navbar-toggler"

@@ -23,7 +23,7 @@ class ImageListView(ListView):
 
 class ImageDetailView(DetailView):
     model = Image
-    template_name = "gallery/image_detail.html"
+    template_name = "gallery/detail_image.html"
     context_object_name = "image"
 
 

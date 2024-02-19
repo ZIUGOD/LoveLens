@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "ckeditor",
+    "ckeditor_uploader",
     "gallery",
     "members",
     "crispy_forms",
@@ -32,6 +34,8 @@ INSTALLED_APPS = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "uni_form"
+
+CKEDITOR_UPLOAD_PATH = "content/ckeditor/"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -126,6 +130,13 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": "full",
+        "config.height": 600,
+    },
+}
 
 # ╔───────────────────────────────────────────────╗ #
 # │▒███████▒ ██▓ █    ██   ▄████  ▒█████  ▓█████▄ │ #

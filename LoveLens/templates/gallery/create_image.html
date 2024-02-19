@@ -5,9 +5,11 @@
     - Upload Image
 {% endblock title %}
 {% block content %}
-    <div class="bg-secondary text-white-lg text-ce rounded-4 shadow p-2 border border-1">
+    <div class="d-flex flex-column bg-secondary text-white text-center rounded-3 shadow p-3 border border-1">
         <h2>Enviar Nova Imagem</h2>
-        <form method="post" enctype="multipart/form-data">
+        <form method="post"
+              enctype="multipart/form-data"
+              class="d-flex flex-column justify-content-center align-items-center">
             {% crispy form %}
             <input type="submit" class="btn btn-primary" value="Enviar">
         </form>

@@ -8,3 +8,9 @@ class UserProfile(models.Model):
         on_delete=models.CASCADE,
         related_name="user_profile",
     )
+    biography = models.TextField(
+        blank=True,
+        null=True,
+        default="Hey! I am using LoveLens!",
+        max_length=256,
+    )
