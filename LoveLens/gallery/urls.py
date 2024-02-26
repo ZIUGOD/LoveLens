@@ -13,7 +13,7 @@ app_name = "gallery"
 urlpatterns = [
     path(
         "upload/",
-        ImageCreateView.as_view(),
+        login_required(ImageCreateView.as_view()),
         name="new_image",
     ),
     path(

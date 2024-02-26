@@ -31,10 +31,6 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
 ]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-CRISPY_TEMPLATE_PACK = "uni_form"
-
 CKEDITOR_UPLOAD_PATH = "content/ckeditor/"
 
 MIDDLEWARE = [
@@ -45,6 +41,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_currentuser.middleware.ThreadLocalUserMiddleware",
 ]
 
 ROOT_URLCONF = "core.urls"
@@ -65,10 +62,6 @@ TEMPLATES = [
     },
 ]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
-CRISPY_TEMPLATE_PACK = "bootstrap5"
-
 WSGI_APPLICATION = "core.wsgi.application"
 
 
@@ -82,7 +75,7 @@ DATABASES = {
     }
 }
 
-LOGOUT_REDIRECT_URL = "home_page"
+LOGOUT_REDIRECT_URL = "login_user"
 LOGIN_REDIRECT_URL = "home_page"
 
 
@@ -131,11 +124,128 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 CKEDITOR_CONFIGS = {
     "default": {
-        "toolbar": "full",
-        "config.height": 600,
-    },
+        "height": "200",
+        "width": "auto",
+        "skin": "moono-lisa",
+        "toolbar_Basic": [["Source", "-", "Bold", "Italic"]],
+        "toolbar_YourCustomToolbarConfig": [
+            {
+                "name": "document",
+                "items": [
+                    "Source",
+                    "-",
+                    "Templates",
+                ],
+            },
+            {
+                "name": "clipboard",
+                "items": [
+                    "Cut",
+                    "Copy",
+                    "Paste",
+                    "PasteText",
+                    "PasteFromWord",
+                    "-",
+                    "Undo",
+                    "Redo",
+                ],
+            },
+            {
+                "name": "forms",
+                "items": [
+                    "Form",
+                    "Checkbox",
+                    "Radio",
+                    "TextField",
+                    "Textarea",
+                    "Select",
+                    "Button",
+                    "ImageButton",
+                    "HiddenField",
+                ],
+            },
+            {
+                "name": "basicstyles",
+                "items": [
+                    "Bold",
+                    "Italic",
+                    "Underline",
+                    "Strike",
+                    "Subscript",
+                    "Superscript",
+                    "-",
+                    "RemoveFormat",
+                ],
+            },
+            "/",
+            {
+                "name": "paragraph",
+                "items": [
+                    "NumberedList",
+                    "BulletedList",
+                    "-",
+                    "Outdent",
+                    "Indent",
+                    "-",
+                    "Blockquote",
+                    "CreateDiv",
+                    "-",
+                    "JustifyLeft",
+                    "JustifyCenter",
+                    "JustifyRight",
+                    "JustifyBlock",
+                    "-",
+                    "BidiLtr",
+                    "BidiRtl",
+                    "Language",
+                ],
+            },
+            {"name": "links", "items": ["Link", "Unlink", "Anchor"]},
+            {
+                "name": "insert",
+                "items": [
+                    "Image",
+                    "Flash",
+                    "Table",
+                    "HorizontalRule",
+                    "SpecialChar",
+                    "PageBreak",
+                    "Iframe",
+                ],
+            },
+            "/",
+            {"name": "styles", "items": ["Styles", "Format", "Font", "FontSize"]},
+            {"name": "colors", "items": ["TextColor", "BGColor"]},
+            {"name": "tools", "items": ["Maximize", "ShowBlocks"]},
+            {"name": "about", "items": ["About"]},
+            {},
+        ],
+        "toolbar": "YourCustomToolbarConfig",
+        "tabSpaces": 4,
+        "extraPlugins": ",".join(
+            [
+                "uploadimage",
+                "div",
+                "autolink",
+                "autoembed",
+                "embedsemantic",
+                "autogrow",
+                "widget",
+                "lineutils",
+                "clipboard",
+                "dialog",
+                "dialogui",
+                "elementspath",
+            ]
+        ),
+    }
 }
 
 # ╔───────────────────────────────────────────────╗ #

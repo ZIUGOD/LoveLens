@@ -1,4 +1,3 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
@@ -13,7 +12,7 @@ class MemberLoginView(LoginView):
     authentication_form = AuthenticationForm
 
 
-class UserProfileView(LoginRequiredMixin, generic.TemplateView):
+class UserProfileView(generic.TemplateView):
     template_name = "members/user_profile.html"
 
     def get_context_data(self, **kwargs):

@@ -8,10 +8,15 @@ from .forms import ImageForm
 
 
 class ImageCreateView(CreateView, LoginRequiredMixin):
+    permission_denied_message = "You must be logged in to create a note."
+    login_url = reverse_lazy("login_user")
     model = Image
     template_name = "gallery/create_image.html"
-    form_class = ImageForm
     success_url = reverse_lazy("home_page")
+    form_class = ImageForm
+
+    def get_queryset(self):
+        return Image.objects.filter(author=self.request.user)
 
 
 class ImageListView(ListView):
@@ -28,6 +33,8 @@ class ImageDetailView(DetailView):
 
 
 class ImageDeleteView(DeleteView, LoginRequiredMixin):
+    permission_denied_message = "You must be logged in to create a note."
+    login_url = reverse_lazy("login_user")
     model = Image
     template_name = "gallery/image_delete.html"
     success_url = reverse_lazy("home_page")

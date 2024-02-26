@@ -5,9 +5,9 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="container border border-2 rounded-4 p-1">
-        <div class="d-flex flex-column align-items-center justify-content-center p-2 border border-2 rounded-4 shadow m-2 text-center bg-dark text-white">
+        <div class="d-flex flex-column align-items-center justify-content-center p-2 border border-2 rounded-4 shadow m-2 bg-dark text-white">
             <h3 class="text-center">{{ lovelens_user.first_name }} {{ lovelens_user.last_name }}</h3>
-            <ul class="list-group list-group-flush text-start bg-dark rounded-3">
+            <ul class="list-group list-group-flush text-justify bg-dark rounded-3">
                 <li class="list-group-item bg-dark text-light">
                     <strong>User ID:</strong> {{ lovelens_user.id }}
                 </li>
@@ -27,7 +27,7 @@
                     <strong>Join date:</strong> {{ lovelens_user.date_joined }}
                 </li>
                 <li class="list-group-item bg-dark text-light">
-                    <strong>images:</strong> {{ lovelens_user.user_images.all|length }}
+                    <strong>images:</strong> {{ lovelens_user.images.count }}
                 </li>
                 <li class="list-group-item bg-dark text-light">
                     <strong>Biography:</strong> {{ lovelens_user.profile.biography|default:"Hello there! I am using LoveLens!" }}
@@ -44,12 +44,12 @@
                 {% endif %}
             </ul>
         </div>
-        {% if lovelens_user.user_images.all %}
+        {% if lovelens_user.gallery_images %}
             <h3 class="text-center">images from {{ lovelens_user.username }}</h3>
             <ul id="unordered-list"
                 class="list-group d-flex flex-column justify-content-center">
                 {% for image in lovelens_user.user_images.all %}
-                    <a href="{% url "read_image" image.id %}"
+                    <a href="{% url 'read_image' image.id %}"
                        class="text-decoration-none m-1 shadow text-center bg-dark border border-2 border-black rounded-4 my-1">
                         <li class="list-group-item">
                             <h3 class="h3">{{ image.title|safe }}</h3>
