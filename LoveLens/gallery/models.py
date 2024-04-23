@@ -7,7 +7,6 @@ from django.utils import timezone
 class Image(models.Model):
     title = models.CharField(
         verbose_name="Title",
-        unique=True,
         max_length=128,
     )
     image = models.ImageField(
@@ -17,7 +16,6 @@ class Image(models.Model):
     )
     description = RichTextField(
         verbose_name="Description",
-        unique=True,
         max_length=128,
     )
     created_at = models.DateTimeField(
@@ -29,12 +27,9 @@ class Image(models.Model):
         verbose_name="Updated at: ",
     )
     author = CurrentUserField(
-        related_name="user_notes",
+        related_name="user_pictures",
         on_delete=models.CASCADE,
     )
-
-    def __str__(self):
-        return self.title[:128]
 
     def save(self, *args, **kwargs):
         if not self.created_at:

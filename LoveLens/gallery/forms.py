@@ -13,10 +13,20 @@ class ImageForm(forms.ModelForm):
 
     Attributes:
         title (CharField): The title of the image.
-        text (CharField): The text of the image.
+        image (ImageField): The image file.
+        description (CharField): The description of the image.
     """
 
-    description = forms.CharField(widget=CKEditorWidget())
+    title = forms.CharField(
+        label="Título da imagem ",
+    )
+    image = forms.ImageField(
+        label="Enviar imagem ",
+    )
+    description = forms.CharField(
+        label="Descrição da imagem ",
+        widget=CKEditorWidget(),
+    )
 
     class Meta:
         model = Image
@@ -25,6 +35,17 @@ class ImageForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ImageForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper(self)
-
         self.helper.form_tag = False
-        self.helper.label_class = "col-lg-2"
+        self.helper.field_class = "d-flex flex-column align-items-center w-100"
+        self.fields["title"].widget.attrs.update(
+            {
+                "class": "form-control shadow rounded-5 py-2 px-3",
+                "placeholder": "Insira um título...",
+            }
+        )
+        self.fields["image"].widget.attrs.update(
+            {
+                "class": "form-control shadow rounded-5 p-2 w-100",
+                "placeholder": "Inserir uma nova imagem...",
+            }
+        )
