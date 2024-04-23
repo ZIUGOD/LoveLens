@@ -1,20 +1,25 @@
 from pathlib import Path
 from os import path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-2v*lro_i%r=6#4o_t0)ko33gs(k6b69@i5y2(=+nnrz_wq(2@u"
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = env("DEBUG") or False
+DEBUG = env("DEBUG") or False
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = env("ALLOWED_HOSTS")
+ALLOWED_HOSTS = ["*"]  # only while in development
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -32,6 +37,127 @@ INSTALLED_APPS = [
 ]
 
 CKEDITOR_UPLOAD_PATH = "content/ckeditor/"
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        "config.height": "full",
+        "config.width": "full",
+        "skin": "moono-dark",
+        "editorplaceholder": "Descrição da imagem...",
+        "toolbar": [
+            {
+                "name": "document",
+                "items": [
+                    "Source",
+                    "-",
+                    "Preview",
+                    "-",
+                    "Templates",
+                ],
+            },
+            {
+                "name": "clipboard",
+                "items": [
+                    "Cut",
+                    "Copy",
+                    "Paste",
+                    "PasteText",
+                    "PasteFromWord",
+                    "-",
+                    "Undo",
+                    "Redo",
+                ],
+            },
+            {
+                "name": "editing",
+                "items": [
+                    "Find",
+                    "Replace",
+                    "-",
+                    "SelectAll",
+                    "-",
+                    "Scayt",
+                ],
+            },
+            {
+                "name": "basicstyles",
+                "items": [
+                    "Bold",
+                    "Italic",
+                    "Underline",
+                    "Strike",
+                    "Subscript",
+                    "Superscript",
+                    "-",
+                    "RemoveFormat",
+                ],
+            },
+            {
+                "name": "paragraph",
+                "items": [
+                    "NumberedList",
+                    "BulletedList",
+                    "-",
+                    "Blockquote",
+                    "-",
+                    "JustifyLeft",
+                    "JustifyCenter",
+                    "JustifyRight",
+                    "JustifyBlock",
+                ],
+            },
+            {
+                "name": "links",
+                "items": [
+                    "Link",
+                    "Unlink",
+                    "Anchor",
+                ],
+            },
+            {
+                "name": "insert",
+                "items": [
+                    "Image",
+                    "Flash",
+                    "Table",
+                    "HorizontalRule",
+                    "Smiley",
+                    "SpecialChar",
+                    "Iframe",
+                ],
+            },
+            {
+                "name": "styles",
+                "items": [
+                    "Styles",
+                    "Format",
+                    "Font",
+                    "FontSize",
+                ],
+            },
+            {
+                "name": "colors",
+                "items": [
+                    "TextColor",
+                    "BGColor",
+                ],
+            },
+            {
+                "name": "tools",
+                "items": [
+                    "Maximize",
+                    "ShowBlocks",
+                ],
+            },
+            {
+                "name": "about",
+                "items": [
+                    "About",
+                ],
+            },
+        ],
+    },
+}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -123,7 +249,6 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
