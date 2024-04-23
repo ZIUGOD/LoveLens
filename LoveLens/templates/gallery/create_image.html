@@ -5,14 +5,21 @@
     - Upload Image
 {% endblock title %}
 {% block content %}
-    <div class="d-flex flex-column bg-secondary text-white text-center rounded-3 shadow p-3 border border-1">
-        <h2>Enviar Nova Imagem</h2>
+    <div class="bg-secondary text-white text-center rounded-3 shadow border border-1 py-3">
+        <h2 class="display-5">Enviar Nova Imagem</h2>
         <form method="post"
               enctype="multipart/form-data"
-              class="d-flex flex-column justify-content-center align-items-center">
-            {% crispy form %}
-            <input type="submit" class="btn btn-primary" value="Enviar">
+              class="d-flex flex-column justify-content-center align-items-center p-2">
+            <div class="d-flex flex-column">{% crispy form %}</div>
+            <div class="d-flex flex-row justify-content-center align-items-center">
+                <input type="submit"
+                       class="btn btn-primary my-3 mx-3 rounded-5 shadow border-2 border-light"
+                       value="Enviar">
+                <input type="button"
+                       class="btn btn-secondary my-3 mx-3 rounded-5 shadow border-2 border-light"
+                       value="Voltar"
+                       onclick="window.history.back()">
+            </div>
         </form>
     </div>
-    <link rel="stylesheet" href="{% static 'gallery/css/create_image.css' %}">
 {% endblock content %}

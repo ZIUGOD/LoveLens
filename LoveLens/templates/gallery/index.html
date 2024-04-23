@@ -4,25 +4,23 @@
     - Home
 {% endblock title %}
 {% block content %}
-    <h2 class="my-3 text-center display-5 text-light">LoveLens - ZIU & Kay</h2>
-    <div class="bg-secondary text-white rounded-3 shadow p-1">
-        <div class="row">
-            {% if images %}
-                {% for image in images %}
-                    <div class="col-md-3">
-                        <a href="{% url 'gallery:read_image' image.id %}">
-                            <img class="card-img-bottom img-responsive shadow text-white rounded-3"
-                                 src="{{ image.image.url }}"
-                                 alt="{{ image.title }}"
-                                 width="{{ image.width }}"
-                                 height="{{ image.height }}">
-                        </a>
-                        <p class="card-text text-center text-dark my-1 mx-0">{{ image.upload_date }}</p>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <p class="text-center mt-2">No images found</p>
-            {% endif %}
+    <h2 class="my-5 text-center display-5 text-light">LoveLens - ZIU & Kay</h2>
+    {% if images %}
+        <div class="row shadow rounded-4 p-2 m-1">
+            {% for image in images %}
+                <div class="col-md-3 justify-content-center align-items-center m-1 p-0 align-self-center">
+                    <a href="{% url 'gallery:read_image' image.id %}">
+                        <img class="card-img-bottom img-responsive shadow text-white border border-2 rounded-3"
+                             src="{{ image.image.url }}"
+                             alt="{{ image.title }}"
+                             width="{{ image.width }}"
+                             height="{{ image.height }}">
+                    </a>
+                    <p class="card-text text-center text-dark my-1 mx-0">{{ image.upload_date }}</p>
+                </div>
+            {% endfor %}
         </div>
-    </div>
+    {% else %}
+        <p class="text-center mt-2">No images found</p>
+    {% endif %}
 {% endblock content %}

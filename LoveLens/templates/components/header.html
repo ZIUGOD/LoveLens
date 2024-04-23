@@ -3,12 +3,12 @@
     <header class="navbar navbar-expand-md navbar-light d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom text-success bg-secondary">
         <a id="nyra-home-page"
            href="{% url 'home_page' %}"
-           class="navbar-brand d-flex align-items-center mb-1 mb-md-0 me-md-auto">
-            <img src="{% static 'images/logo.jpeg' %}"
+           class="navbar-brand d-flex align-items-center justify-content-center mb-1 mb-md-0 me-md-auto">
+            <img src="{% static 'images/logo.png' %}"
+                 class="img-fluid"
                  alt="lovelens"
-                 width="96"
-                 height="96"
-                 class="shadow rounded-circle">
+                 width="66"
+                 height="66">
         </a>
         {% if user.is_authenticated %}
             <div class="order-md-last">
@@ -23,7 +23,6 @@
                 </button>
                 <div class="collapse navbar-collapse flex-fill" id="navbarNav">
                     <ul class="navbar-nav text-center flex-fill">
-                        {% comment %} form to logout {% endcomment %}
                         <form method="post"
                               class="nav-tem p-2 text-center flex-fill"
                               action="{% url 'logout' %}">
