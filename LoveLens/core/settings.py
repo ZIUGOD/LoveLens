@@ -30,8 +30,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "ckeditor",
     "ckeditor_uploader",
-    "gallery",
-    "members",
+    "features.gallery",
+    "features.members",
     "crispy_forms",
     "crispy_bootstrap5",
 ]
