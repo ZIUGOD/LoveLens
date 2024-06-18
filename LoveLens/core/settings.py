@@ -1,3 +1,4 @@
+from django.core.management.utils import get_random_secret_key
 from pathlib import Path
 from os import path
 import environ
@@ -12,11 +13,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = env("DEBUG") or False
-DEBUG = env("DEBUG") or False
+DEBUG = True
 
 # ALLOWED_HOSTS = env("ALLOWED_HOSTS")
 ALLOWED_HOSTS = ["*"]  # only while in development
@@ -42,7 +43,7 @@ CKEDITOR_CONFIGS = {
     "default": {
         "config.height": "full",
         "config.width": "full",
-        "skin": "moono-dark",
+        # "skin": "moono-dark",
         "editorplaceholder": "Descrição da imagem...",
         "toolbar": [
             {
@@ -240,31 +241,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "/static/"
-
 STATICFILES_DIRS = [path.join(BASE_DIR, "static")]
-
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
 CRISPY_TEMPLATE_PACK = "bootstrap5"
-
-STATICFILES_DIRS = [path.join(BASE_DIR, "static")]
-
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
-
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # ╔───────────────────────────────────────────────╗ #
