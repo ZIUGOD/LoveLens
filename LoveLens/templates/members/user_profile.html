@@ -26,14 +26,14 @@
         </ul>
         {% if lovelens_user.user_pictures.all %}
             <hr>
-            <div class="my-2 mx-1 row shadow rounded-3 border bg-secondary mb-3 w-100">
+            <div class="col-md-3 row justify-content-center align-items-center m-1 p-0 align-self-center flex-fill">
                 <h5 class="h5 m-2 my-3 text-center display-6">
                     Imagens de {{ lovelens_user.username }}: {{ lovelens_user.user_pictures.count }}
                 </h5>
                 {% for image in lovelens_user.user_pictures.all %}
-                    <div class="col-md-2 p-1">
+                    <div class="col-md-2 justify-content-center align-items-center m-1 p-0 align-self-center">
                         <a href="{% url 'gallery:read_image' image.id %}">
-                            <img class="card-img-bottom img-responsive shadow text-white shadow rounded-3"
+                            <img class="card-img-bottom img-responsive rounded-3"
                                  src="{{ image.image.url }}"
                                  alt="{{ image.title }}"
                                  width="{{ image.width }}"

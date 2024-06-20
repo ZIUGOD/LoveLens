@@ -6,6 +6,8 @@ and the user who uploaded it.
 """
 
 from django_currentuser.db.models import CurrentUserField
+from django.dispatch import receiver
+from django.db.models.signals import post_delete
 from ckeditor.fields import RichTextField
 from django.db import models
 from django.utils import timezone
@@ -50,3 +52,10 @@ class Image(models.Model):
 
     def __str__(self):
         return str(self.title)[:128]
+
+
+@receiver(post_delete, sender=Image)
+def delete_image_file(sender, instance, **kwargs):
+    # Pass False so FileField doesn't save the model.
+    if instance.image:
+        instance.image.delete(False)

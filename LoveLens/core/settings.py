@@ -37,21 +37,24 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    #
     "ckeditor",
     "ckeditor_uploader",
     "features.gallery",
     "features.members",
     "crispy_forms",
     "crispy_bootstrap5",
+    "django_cleanup.apps.CleanupConfig",
 ]
 
+# CK editor session #
 CKEDITOR_UPLOAD_PATH = "content/ckeditor/"
 
 CKEDITOR_CONFIGS = {
     "default": {
         "config.height": "full",
         "config.width": "full",
-        # "skin": "moono-dark",
+        "skin": "moono-dark",
         "editorplaceholder": "Descrição da imagem...",
         "toolbar": [
             {
