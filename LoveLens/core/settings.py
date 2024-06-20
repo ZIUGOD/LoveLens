@@ -1,10 +1,19 @@
-from django.core.management.utils import get_random_secret_key
-from pathlib import Path
-from os import path
-import environ
+"""
+Django settings for the LoveLens project.
 
-env = environ.Env()
-environ.Env.read_env()
+These settings configure various aspects of the Django project, including database settings,
+static files, internationalization, and more.
+
+For more information on Django settings, see:
+https://docs.djangoproject.com/en/3.2/topics/settings/
+
+For the full list of settings and their values, see:
+https://docs.djangoproject.com/en/3.2/ref/settings/
+"""
+
+from os import path
+from pathlib import Path
+from django.core.management.utils import get_random_secret_key
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -16,11 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = env("DEBUG") or False
 DEBUG = True
 
 # ALLOWED_HOSTS = env("ALLOWED_HOSTS")
-ALLOWED_HOSTS = ["*"]  # only while in development
+ALLOWED_HOSTS = ["*"]  # Only while in development
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -242,7 +250,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [path.join(BASE_DIR, "static")]
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "static_django"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

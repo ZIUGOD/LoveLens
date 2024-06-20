@@ -1,3 +1,10 @@
+"""
+This module contains the Image model for the LoveLens application.
+The Image model represents an image uploaded by a user.
+It contains the image file, a title, a description,
+and the user who uploaded it.
+"""
+
 from django_currentuser.db.models import CurrentUserField
 from ckeditor.fields import RichTextField
 from django.db import models
@@ -5,6 +12,11 @@ from django.utils import timezone
 
 
 class Image(models.Model):
+    """
+    This model represents an image uploaded by a user.
+    It contains the image file, a title, a description, and the user who uploaded it.
+    """
+
     title = models.CharField(
         verbose_name="Title",
         max_length=128,
@@ -37,4 +49,4 @@ class Image(models.Model):
         super(Image, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.title[:128]
+        return str(self.title)[:128]
