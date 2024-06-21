@@ -28,22 +28,22 @@
                               action="{% url 'logout' %}">
                             {% csrf_token %}
                             <button id="logout-button"
-                                    class="nav-link shadow rounded-5 px-3 py-2 border rounded 4"
+                                    class="nav-link text-light shadow rounded-5 px-3 py-2 border rounded 4"
                                     type="submit">Logout</button>
                         </form>
                         <li class="nav-item p-2 flex-fill">
                             <a href="{% url 'gallery:new_image' %}"
-                               class="nav-link shadow rounded-5 px-3 py-2 border rounded 4">Upload new imagem</a>
+                               class="nav-link text-light shadow rounded-5 px-3 py-2 border rounded 4">Upload new imagem</a>
                         </li>
                         <li class="nav-item p-2 flex-fill">
                             <a href="{% url 'user_profile' user.username %}"
-                               class="nav-link shadow rounded-5 px-3 py-2 border rounded 4">{{ user.username }}</a>
+                               class="nav-link text-light shadow rounded-5 px-3 py-2 border rounded 4">{{ user.username }}</a>
                         </li>
                     {% else %}
                         <ul class="navbar-nav text-center">
                             <li class="nav-item p-2 flex-fill">
                                 <a href="{% url 'login_user' %}"
-                                   class="nav-link shadow rounded-5 px-3 py-2 border rounded 4">Login</a>
+                                   class="nav-link text-light shadow rounded-5 px-3 py-2 border rounded 4">Login</a>
                             </li>
                         </ul>
                     {% endif %}

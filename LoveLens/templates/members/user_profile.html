@@ -8,7 +8,10 @@
         <h3 class="text-center">{{ lovelens_user.first_name }} {{ lovelens_user.last_name }}</h3>
         <ul class="list-group list-group-flush text-justify bg-dark rounded-3">
             <li class="list-group-item bg-dark text-light">@{{ lovelens_user.username }}, {{ lovelens_user.id }}</li>
-            <li class="list-group-item bg-dark text-light">{{ lovelens_user.email }}</li>
+            {% if lovelens_user.email %}
+                <li class="list-group-item bg-dark text-light">{{ lovelens_user.email }}</li>
+            {% else %}
+            {% endif %}
             <li class="list-group-item bg-dark text-light">{{ lovelens_user.date_joined }}</li>
             <li class="list-group-item bg-dark text-light">
                 <i>{{ lovelens_user.profile.biography|default:"Karolayne minha mulher maravilhosa linda cheirosa gostosa " }}</i>
@@ -25,13 +28,12 @@
             {% endif %}
         </ul>
         {% if lovelens_user.user_pictures.all %}
-            <hr>
-            <div class="col-md-3 row justify-content-center align-items-center m-1 p-0 align-self-center flex-fill">
+            <div class="row justify-content-center align-items-center p-3 align-self-center">
                 <h5 class="h5 m-2 my-3 text-center display-6">
                     Imagens de {{ lovelens_user.username }}: {{ lovelens_user.user_pictures.count }}
                 </h5>
                 {% for image in lovelens_user.user_pictures.all %}
-                    <div class="col-md-2 justify-content-center align-items-center m-1 p-0 align-self-center">
+                    <div class="col-md-3 justify-content-center align-items-center p-1 align-self-center">
                         <a href="{% url 'gallery:read_image' image.id %}">
                             <img class="card-img-bottom img-responsive rounded-3"
                                  src="{{ image.image.url }}"

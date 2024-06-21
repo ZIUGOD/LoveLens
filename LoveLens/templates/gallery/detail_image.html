@@ -10,11 +10,7 @@
         <div class="d-flex flex-column align-items-center justify-content-center">
             <h2 class="h2 my-1 mx-5 display-5 text-center">{{ image.title|safe }}</h2>
             <hr />
-            <img src="{{ image.image.url }}"
-                 class="img-fluid img-responsive rounded-3 my-5"
-                 width="image.width"
-                 height="image.height"
-                 alt="{{ image.title }}" />
+            <img src="{{ image.image.url }}" class="img-fluid img-responsive rounded-3 my-5" width={{ image.width }} height="{{ image.width }}" alt="{{ image.title }}" />
         </div>
         {{ image.description|safe }}
         <div class="text-center p-1">
@@ -27,13 +23,13 @@
                     <form method="post" action="{% url 'gallery:delete_image' image.id %}">
                         {% csrf_token %}
                         <input type="submit"
-                               value="Excluir"
+                               value="Delete"
                                class="m-1 px-3 py-2 shadow border border-2 border-white rounded-5 btn btn-danger"
                                onclick="return confirm('Confirmar exclusão?');">
                     </form>
                 {% endif %}
                 <input type="button"
-                       value="Voltar"
+                       value="Back"
                        class="m-1 px-3 py-2 shadow border border-2 border-white rounded-5 btn btn-secondary"
                        onclick="window.history.back()">
             </div>

@@ -21,9 +21,10 @@ class ImageCreateView(CreateView, LoginRequiredMixin):
 
 class ImageListView(ListView):
     model = Image
-    paginate_by = None
     context_object_name = "images"
     template_name = "gallery/index.html"
+    paginate_by = 30
+    ordering = ["-created_at"]
 
 
 class ImageDetailView(DetailView):
