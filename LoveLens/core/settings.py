@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     "django_cleanup.apps.CleanupConfig",
+    "django_seed",
+    "django_currentuser",
 ]
 
 # CK editor session #
@@ -54,7 +56,7 @@ CKEDITOR_CONFIGS = {
     "default": {
         "config.height": "full",
         "config.width": "full",
-        "skin": "moono-dark",
+        # "skin": "moono-dark",
         "editorplaceholder": "Descrição da imagem...",
         "toolbar": [
             {

@@ -55,7 +55,10 @@ class Image(models.Model):
 
 
 @receiver(post_delete, sender=Image)
-def delete_image_file(sender, instance, **kwargs):
+def delete_image_file(instance, **kwargs):
+    """
+    Delete the image file when an Image instance is deleted.
+    """
     # Pass False so FileField doesn't save the model.
     if instance.image:
         instance.image.delete(False)

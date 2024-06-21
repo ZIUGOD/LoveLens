@@ -7,8 +7,22 @@ It includes views for member login and user profile display.
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic
+from django.views.generic.edit import CreateView
+from .forms import UserRegisterForm
+
+
+class SignUpView(SuccessMessageMixin, CreateView):
+    """
+    View for registering a new user. Overrides the default create view to use a custom template.
+    """
+
+    template_name = "members/register.html"
+    success_url = reverse_lazy("login")
+    form_class = UserRegisterForm
+    success_message = "Your profile was created successfully"
 
 
 class MemberLoginView(LoginView):

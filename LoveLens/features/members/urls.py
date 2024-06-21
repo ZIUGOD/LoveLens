@@ -7,9 +7,10 @@ It includes the following URL patterns:
 """
 
 from django.urls import path
-from .views import MemberLoginView, UserProfileView
+from .views import MemberLoginView, UserProfileView, SignUpView
 
 urlpatterns = [
-    path("login_user/", MemberLoginView.as_view(), name="login_user"),
+    path("login/", MemberLoginView.as_view(), name="login_user"),
     path("<str:username>/", UserProfileView.as_view(), name="user_profile"),
+    path("register/", SignUpView.as_view(), name="register_user"),
 ]

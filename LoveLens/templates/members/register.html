@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}
+    - Sign up
+{% endblock title %}
+{% block content %}
+    <form method="post">
+        <div class="d-flex flex-column align-items-center justify-content-center p-3 border border-2 rounded-4 shadow m-2 text-center bg-secondary text-white">
+            {% crispy form %}
+            <input type="submit" class="btn btn-success" value="Submit">
+            DESGRAÇA
+        </div>
+    </form>
+{% endblock content %}

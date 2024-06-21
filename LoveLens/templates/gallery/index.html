@@ -29,12 +29,9 @@
             <ul class="pagination">
                 <div class="pagination">
                     {% if page_obj.has_previous %}
-                        <a href="?page=1" class="btn btn-secondary">First page</a>
+                        {% comment %} <a href="?page=1" class="btn btn-secondary">First page</a> {% endcomment %}
                         <a href="?page={{ page_obj.previous_page_number }}"
                            class="btn btn-warning mx-2">Previous page</a>
-                    {% else %}
-                        <a href="?page=1" class="btn btn-secondary disabled">First page</a>
-                        <span class="btn btn-warning mx-2 disabled">Previous page</span>
                     {% endif %}
                     {% if page_obj.paginator.num_pages > 1 %}
                         <a href="?page=1"
@@ -47,12 +44,10 @@
                     {% if page_obj.has_next %}
                         <a href="?page={{ page_obj.next_page_number }}"
                            class="btn btn-primary mx-2">Next page</a>
-                    {% else %}
-                        <span class="btn btn-primary mx-2 disabled">Next page</span>
                     {% endif %}
                 </div>
             </ul>
         </nav>
+        <p class="text-center text-light">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
     </div>
-    <p class="text-center text-light">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
 {% endblock content %}
