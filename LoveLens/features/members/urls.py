@@ -9,6 +9,7 @@ It includes the following URL patterns:
 from django.urls import path
 from .views import MemberLoginView, UserProfileView, SignUpView
 
+
 urlpatterns = [
     path("login/", MemberLoginView.as_view(), name="login_user"),
     path("<str:username>/", UserProfileView.as_view(), name="user_profile"),
