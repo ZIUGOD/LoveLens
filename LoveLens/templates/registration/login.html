@@ -9,5 +9,8 @@
             {% crispy form %}
             <input type="submit" class="btn btn-success" value="Submit">
         </div>
+        <p class="text-light text-center">
+            New to LoveLens? <a class="text-light" href="{% url 'register_user' %}">Create an account.</a>
+        </p>
     </form>
 {% endblock content %}

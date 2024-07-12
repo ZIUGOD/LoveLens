@@ -11,9 +11,9 @@ from features.gallery.views import ImageListView
 
 
 urlpatterns = [
-    path("", ImageListView.as_view(), name="home_page"),
-    path("image/", include("features.gallery.urls")),
     path("admin/", admin.site.urls),
-    path("", include("django.contrib.auth.urls")),
-    path("member/", include("features.members.urls")),
+    path("", ImageListView.as_view(), name="home_page"),  # index
+    path("", include("django.contrib.auth.urls")),  # django
+    path("image/", include("features.gallery.urls")),  # app images
+    path("members/", include("features.members.urls")),  # login, signup, profile
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -217,6 +217,7 @@ DATABASES = {
 
 LOGOUT_REDIRECT_URL = "login_user"
 LOGIN_REDIRECT_URL = "home_page"
+# SIGNUP_REDIRECT_URL = "login_user"
 
 
 # Password validation
