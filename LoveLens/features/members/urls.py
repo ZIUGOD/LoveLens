@@ -11,6 +11,7 @@ from .views import MemberLoginView, UserProfileView, UserRegisterView
 
 
 
+
 urlpatterns = [
     path("login/", MemberLoginView.as_view(), name="login_user"),
     path("u/<str:username>/", UserProfileView.as_view(), name="user_profile"),
