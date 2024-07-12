@@ -1,12 +1,15 @@
 {% extends "components/base.html" %}
 {% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/gallery/index.css' %}">
+{% endblock head %}
 {% block title %}
     - Home
 {% endblock title %}
 {% block content %}
-    <h2 class="my-5 text-center display-5 text-light">LoveLens - ZIU & Kay</h2>
+    <h2 class="my-5 text-center display-5">LoveLens - ZIU & Kay</h2>
     {% if images %}
-        <div class="row shadow rounded-4 m-1 align-self-center flex-fill">
+        <div class="row rounded-4 m-1 align-self-center flex-fill">
             {% for image in images %}
                 <div class="col-md-2 p-1 align-items-center align-self-center">
                     <a href="{% url 'gallery:read_image' image.id %}">
@@ -16,7 +19,7 @@
                              width="{{ image.width }}"
                              height="{{ image.height }}">
                     </a>
-                    <p class="card-text text-center text-dark my-1 mx-0">{{ image.upload_date }}</p>
+                    <p class="card-text text-center my-1 mx-0">{{ image.upload_date }}</p>
                 </div>
             {% endfor %}
         </div>
@@ -24,30 +27,37 @@
         <p class="text-center mt-2">No images found</p>
     {% endif %}
     <hr>
-    <div class="d-flex column p-1 justify-content-center align-items-center align-self-center text-center">
-        <nav aria-label="Page navigation example">
+    <div id="pagination-container"
+         class="d-flex column justify-content-center align-items-center align-self-center text-center">
+        <nav aria-label="pagination">
             <ul class="pagination">
-                <div class="pagination">
+                <div class="container">
                     {% if page_obj.has_previous %}
-                        {% comment %} <a href="?page=1" class="btn btn-secondary">First page</a> {% endcomment %}
-                        <a href="?page={{ page_obj.previous_page_number }}"
-                           class="btn btn-warning mx-2">Previous page</a>
+                        <a id="previous-page"
+                           href="?page={{ page_obj.previous_page_number }}"
+                           class="btn mx-2">Previous page ({{ page_obj.previous_page_number }})</a>
                     {% endif %}
-                    {% if page_obj.paginator.num_pages > 1 %}
-                        <a href="?page=1"
-                           class="btn {% if page_obj.number == 1 %}btn-primary{% else %}btn-secondary{% endif %} mx-2">1</a>
+                    {% if page_obj.paginator.num_pages > 1 and page_obj.number > 3 %}
+                        <a id="page-1" href="?page=1" class="btn m-1">1</a>
                     {% endif %}
-                    {% if page_obj.paginator.num_pages > 2 %}
-                        <a href="?page=2"
-                           class="btn {% if page_obj.number == 3 %}btn-primary{% else %}btn-secondary{% endif %} mx-2">2</a>
+                    {% if page_obj.paginator.num_pages > 2 and page_obj.number > 3 %}
+                        <a id="page-2" href="?page=2" class="btn m-1 mx-2">2</a>
                     {% endif %}
                     {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}"
-                           class="btn btn-primary mx-2">Next page</a>
+                        <a id="next-page"
+                           href="?page={{ page_obj.next_page_number }}"
+                           class="btn m-1">Next page ({{ page_obj.next_page_number }})</a>
+                    {% endif %}
+                    {% if page_obj.pagination.num_pages > 10 %}
+                        <a id="last-page"
+                           href="?page={{ page_obj.paginator.num_pages }}"
+                           class="btn m-1">Last page ({{ page_obj.paginator.num_pages }})</a>
                     {% endif %}
                 </div>
             </ul>
         </nav>
-        <p class="text-center text-light">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
     </div>
+    {% if page_obj.paginator.num_pages > 1 %}
+        <p id="page-info" class="text-center">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
+    {% endif %}
 {% endblock content %}

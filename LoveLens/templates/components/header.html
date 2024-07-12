@@ -1,11 +1,15 @@
 {% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/components/header.css' %}">
+{% endblock head %}
 {% block content %}
-    <header class="navbar navbar-expand-md navbar-light d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom bg-secondary">
+    <header class="navbar navbar-expand-md d-flex flex-wrap justify-content-between py-3 mb-4">
         <a id="nyra-home-page"
            href="{% url 'home_page' %}"
            class="navbar-brand d-flex align-items-center justify-content-center mb-1 mb-md-0 me-md-auto">
             <img src="{% static 'images/logo.png' %}"
-                 class="img-fluid rounded-4"
+                 id=""
+                 class="img-fluid"
                  alt="lovelens"
                  width="100"
                  height="100">
@@ -27,23 +31,18 @@
                               class="nav-tem p-2 text-center flex-fill"
                               action="{% url 'logout' %}">
                             {% csrf_token %}
-                            <button id="logout-button"
-                                    class="nav-link text-light shadow rounded-5 px-3 py-2 border rounded 4"
-                                    type="submit">Logout</button>
+                            <button id="logout-button" class="nav-link" type="submit">Logout</button>
                         </form>
                         <li class="nav-item p-2 flex-fill">
-                            <a href="{% url 'gallery:new_image' %}"
-                               class="nav-link text-light shadow rounded-5 px-3 py-2 border rounded 4">Upload new imagem</a>
+                            <a href="{% url 'gallery:new_image' %}" class="nav-link">Upload new imagem</a>
                         </li>
                         <li class="nav-item p-2 flex-fill">
-                            <a href="{% url 'user_profile' user.username %}"
-                               class="nav-link text-light shadow rounded-5 px-3 py-2 border rounded 4">{{ user.username }}</a>
+                            <a href="{% url 'user_profile' user.username %}" class="nav-link">{{ user.username }}</a>
                         </li>
                     {% else %}
                         <ul class="navbar-nav text-center">
                             <li class="nav-item p-2 flex-fill">
-                                <a href="{% url 'login_user' %}"
-                                   class="nav-link text-light shadow rounded-5 px-3 py-2 border rounded 4">Login</a>
+                                <a href="{% url 'login_user' %}" class="nav-link">Login</a>
                             </li>
                         </ul>
                     {% endif %}

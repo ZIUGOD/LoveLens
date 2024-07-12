@@ -1,0 +1,57 @@
+#nyra-home-page {
+    border-radius: 50%;
+}
+
+#lovelens-logo {
+    border-radius: 50%;
+}
+
+#lovelens-logo:hover {
+    filter: brightness(0.9);
+}
+
+#navbar-toggler {
+    color: purple;
+    border: 0.1em solid purple;
+    margin: 0.5em;
+}
+
+#navbar-nav {
+    border: 0.2 em solid lime;
+}
+
+#logout-form {
+    margin: 0;
+    padding: 0;
+}
+
+#logout-button,
+#upload-link,
+#profile-link {
+    color: purple;
+    border: 0.2em solid pink;
+    margin: 0 0.2em 0 0.2em;
+    background: blanchedalmond;
+    border-radius: 1em;
+    padding: 1em;
+    transition: 0.3s;
+}
+
+#logout-button:hover,
+#upload-link:hover,
+#profile-link:hover {
+    box-shadow: 0 0 1em purple;
+    transition: 0.3s;
+}
+
+#non-auth-nav {
+    /* Estilos para a navegação não autenticada */
+}
+
+#login-item {
+    /* Estilos para o item de login */
+}
+
+#login-link {
+    /* Estilos para o link de login */
+}

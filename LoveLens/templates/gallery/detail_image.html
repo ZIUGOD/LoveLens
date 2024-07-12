@@ -5,7 +5,7 @@
     - {{ image.title }}
 {% endblock title %}
 {% block content %}
-    <div class="bg-dark text-light px-3 py-5 border border-2 rounded-4 shadow">
+    <div class="px-3 py-5 shadow">
         {% csrf_token %}
         <div class="d-flex flex-column align-items-center justify-content-center">
             <h2 class="h2 my-1 mx-5 display-5 text-center text-justify">{{ image.title|safe }}</h2>
@@ -18,8 +18,8 @@
         </div>
         {{ image.description|safe }}
         <div class="text-center p-1">
-            <span class="text-secondary">
-                {{ image.created_at }} - <a class="text-info" href="{% url 'user_profile' image.author %}">{{ image.author }}</a>
+            <span>
+                {{ image.created_at }} - <a href="{% url 'members:user_profile' image.author %}">{{ image.author }}</a>
             </span>
             <hr>
             <div class="d-flex justify-content-center">
@@ -28,13 +28,13 @@
                         {% csrf_token %}
                         <input type="submit"
                                value="Delete"
-                               class="m-1 px-3 py-2 shadow border border-2 border-white rounded-5 btn btn-danger"
+                               class="m-1 px-3 py-2 border border-2 border-white rounded-5 btn btn-danger"
                                onclick="return confirm('Confirmar exclusão?');">
                     </form>
                 {% endif %}
                 <input type="button"
                        value="Back"
-                       class="m-1 px-3 py-2 shadow border border-2 border-white rounded-5 btn btn-secondary"
+                       class="m-1 px-3 py-2 rounded-5 btn btn-secondary"
                        onclick="window.history.back()">
             </div>
         </div>
